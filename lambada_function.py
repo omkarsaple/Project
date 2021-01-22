@@ -1,3 +1,5 @@
+## This is used to run CloudformationTemplate
+
 import json
 import os
 import boto3
