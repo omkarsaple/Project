@@ -31,9 +31,9 @@ step7:show the records
 df.show()
 
 
-##how to write data from spark to rds
+## How to write data from spark to rds
 
-##Step1:Create the table in mysql(rds)
+Step1:Create the table in mysql(rds)
 create database test;
 
 use test;
@@ -49,7 +49,7 @@ Start_Lng double,
 Distance double,
 Street varchar(200));
 
-##step2:Establish the connection
+step2:Establish the connection
 from  pyspark.sql import SparkSession
 from pyspark.sql import SQLContext
 spark = SparkSession.builder.config(conf=SparkConf()).getOrCreate()
@@ -65,7 +65,7 @@ connectionProperties = {
    "password" : password
  }
 
-##step3:Read the file from s3 bucket
+step3:Read the file from s3 bucket
 df=spark.read.csv("s3://sparktords/Us_accident_RDS.csv")
 step4:write the csv file into rds
 df.write.jdbc(url=jdbc_url,table='demo',mode='overwrite',properties=connectionProperties)
